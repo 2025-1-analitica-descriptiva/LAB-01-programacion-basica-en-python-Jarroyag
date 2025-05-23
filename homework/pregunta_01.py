@@ -20,7 +20,7 @@ def pregunta_01():
     """
    
     
-    with open("files\input\data.csv", newline="", encoding="utf-8") as file:
+    with open("files/input/data.csv", newline="", encoding="utf-8") as file:
         reader = csv.reader(file, delimiter="\t")
         contador = 0
         for row in reader:
