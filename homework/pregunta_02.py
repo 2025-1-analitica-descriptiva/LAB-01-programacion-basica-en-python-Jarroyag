@@ -15,7 +15,7 @@ def pregunta_02():
     [('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
 
     """
-    with open("files\input\data.csv", newline="", encoding="utf-8") as file:
+    with open("files/input/data.csv", newline="", encoding="utf-8") as file:
         reader = csv.reader(file, delimiter="\t")
         contador = {}
         for row in reader:

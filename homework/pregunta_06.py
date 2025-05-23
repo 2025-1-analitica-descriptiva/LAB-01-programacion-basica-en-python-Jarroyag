@@ -26,7 +26,7 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
-    with open("files\input\data.csv", newline="", encoding="utf-8") as file:
+    with open("files/input/data.csv", newline="", encoding="utf-8") as file:
         reader = csv.reader(file, delimiter="\t")
         contador = {}
         for row in reader:
