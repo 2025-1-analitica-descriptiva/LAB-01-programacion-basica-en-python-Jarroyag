@@ -4,7 +4,7 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
-
+import csv
 
 def pregunta_07():
     """
@@ -25,3 +25,15 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+    with open("files\input\data.csv", newline="", encoding="utf-8") as file:
+        reader = csv.reader(file, delimiter="\t")
+        contador = {}
+        for row in reader:
+            letra = row[0]
+            valor = int(row[1])
+            if valor in contador:
+                contador[valor].append(letra)
+            else:
+                contador[valor] = [letra]
+    return sorted(contador.items())
+print(pregunta_07())

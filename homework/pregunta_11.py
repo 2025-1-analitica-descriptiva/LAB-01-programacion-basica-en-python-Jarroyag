@@ -4,7 +4,7 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
-
+import csv
 
 def pregunta_11():
     """
@@ -16,3 +16,17 @@ def pregunta_11():
 
 
     """
+    resultado = {}
+    with open("files/input/data.csv", newline="", encoding="utf-8") as file:
+        reader = csv.reader(file, delimiter="\t")
+        for row in reader:
+            valor = int(row[1])
+            letras = row[3].split(",")
+            for letra in letras:
+                if letra in resultado:
+                    resultado[letra] += valor
+                else:
+                    resultado[letra] = valor
+    return dict(sorted(resultado.items()))
+
+print(pregunta_11())

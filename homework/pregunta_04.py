@@ -4,7 +4,7 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
-
+import csv
 
 def pregunta_04():
     """
@@ -26,3 +26,15 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    with open("files\input\data.csv", newline="", encoding="utf-8") as file:
+        reader = csv.reader(file, delimiter="\t")
+        contador = {}
+        for row in reader:
+            fecha = row[2]
+            mes = fecha.split("-")[1]
+            if mes in contador:
+                contador[mes] += 1
+            else:
+                contador[mes] = 1
+    return sorted(contador.items())
+print(pregunta_04())
